@@ -1,0 +1,27 @@
+.toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: var(--gray-100);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    color: var(--gray-700);
+    transition: all var(--transition-base);
+}
+
+.toggle:hover {
+    background: var(--gray-200);
+    color: var(--primary-600);
+}
+
+:root[data-theme="dark"] .toggle {
+    background: var(--gray-700);
+    color: var(--yellow-400);
+}
+
+:root[data-theme="dark"] .toggle:hover {
+    background: var(--gray-600);
+}

@@ -1,0 +1,218 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: var(--space-4) 0;
+    transition: all var(--transition-base);
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-3) 0;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--primary-900);
+}
+
+.logo svg {
+    transition: transform var(--transition-base);
+}
+
+.logo:hover svg {
+    transform: scale(1.05);
+}
+
+/* Navigation Links */
+.navLinks {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+}
+
+.navLink {
+    font-weight: var(--font-medium);
+    color: var(--gray-700);
+    position: relative;
+    padding: var(--space-2) 0;
+    transition: color var(--transition-base);
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-purple);
+    transition: width var(--transition-base);
+}
+
+.navLink:hover {
+    color: var(--primary-600);
+}
+
+.navLink:hover::after {
+    width: 100%;
+}
+
+/* CTA Button */
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-3) var(--space-6);
+    background: var(--gradient-purple);
+    color: var(--white);
+    font-weight: var(--font-semibold);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Mobile Menu Button */
+.mobileMenuBtn {
+    display: none;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    background: var(--gray-100);
+    border-radius: var(--radius-md);
+}
+
+.hamburger {
+    position: relative;
+    width: 20px;
+    height: 2px;
+    background: var(--gray-700);
+    transition: all var(--transition-base);
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background: var(--gray-700);
+    transition: all var(--transition-base);
+}
+
+.hamburger::before {
+    top: -6px;
+}
+
+.hamburger::after {
+    bottom: -6px;
+}
+
+.hamburger.open {
+    background: transparent;
+}
+
+.hamburger.open::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.hamburger.open::after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+/* Mobile Menu */
+.mobileMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-top: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-base);
+}
+
+.mobileMenu.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobileMenu ul {
+    padding: var(--space-4);
+}
+
+.mobileMenu li {
+    margin-bottom: var(--space-2);
+}
+
+.mobileMenu a {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    font-weight: var(--font-medium);
+    color: var(--gray-700);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+}
+
+.mobileMenu a:hover {
+    background: var(--violet-100);
+    color: var(--primary-600);
+}
+
+.mobileCta {
+    background: var(--gradient-purple) !important;
+    color: var(--white) !important;
+    text-align: center;
+    margin-top: var(--space-2);
+}
+
+/* Actions group (theme toggle + CTA) */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+
+    .navLinks,
+    .actions {
+        display: none;
+    }
+
+    .mobileMenuBtn,
+    .mobileMenu {
+        display: flex;
+    }
+}

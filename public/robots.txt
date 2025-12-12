@@ -1,0 +1,11 @@
+# Loop Technologies robots.txt
+# https://looptechnologies.cm
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://looptechnologies.cm/sitemap.xml
+
+# Disallow admin or API routes if any
+Disallow: /api/

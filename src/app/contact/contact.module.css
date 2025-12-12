@@ -1,0 +1,317 @@
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* Hero */
+.hero {
+    padding: var(--space-24) 0 var(--space-16);
+    background: linear-gradient(135deg, var(--violet-100) 0%, var(--pink-300) 50%, var(--violet-200) 100%);
+    text-align: center;
+}
+
+.tag {
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
+    background: var(--white);
+    color: var(--primary-600);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-4);
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    max-width: 800px;
+    margin: 0 auto var(--space-4);
+}
+
+.hero p {
+    font-size: var(--text-lg);
+    color: var(--gray-700);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Contact Section */
+.contact {
+    padding: var(--space-16) 0 var(--space-20);
+}
+
+.contactGrid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: var(--space-12);
+}
+
+/* Form Section */
+.formSection {
+    background: var(--white);
+    padding: var(--space-10);
+    border-radius: var(--radius-2xl);
+    box-shadow: 0 4px 30px rgba(99, 102, 241, 0.1);
+}
+
+.formSection h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-6);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.formGroup label {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--gray-700);
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+    padding: var(--space-3) var(--space-4);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-base);
+    font-family: inherit;
+    transition: all var(--transition-base);
+    background: var(--white);
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+    outline: none;
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+    color: var(--gray-400);
+}
+
+.formGroup textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submitBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    background: var(--gradient-purple);
+    color: var(--white);
+    font-weight: var(--font-semibold);
+    font-size: var(--text-base);
+    border-radius: var(--radius-lg);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.submitBtn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+.submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--white);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Success Message */
+.successMessage {
+    text-align: center;
+    padding: var(--space-10);
+}
+
+.successMessage svg {
+    width: 64px;
+    height: 64px;
+    color: #10b981;
+    margin-bottom: var(--space-4);
+}
+
+.successMessage h3 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-2);
+    color: var(--primary-900);
+}
+
+.successMessage p {
+    color: var(--gray-600);
+    margin-bottom: var(--space-6);
+}
+
+.resetBtn {
+    padding: var(--space-3) var(--space-6);
+    background: var(--gray-100);
+    color: var(--gray-700);
+    font-weight: var(--font-medium);
+    border-radius: var(--radius-lg);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.resetBtn:hover {
+    background: var(--gray-200);
+}
+
+/* Error Message */
+.errorMessage {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-lg);
+    color: #dc2626;
+    font-size: var(--text-sm);
+    animation: shake 0.5s ease-in-out;
+}
+
+.errorMessage svg {
+    flex-shrink: 0;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateX(-5px);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateX(5px);
+    }
+}
+
+/* Info Section */
+.infoSection {
+    padding: var(--space-8);
+}
+
+.infoSection h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-3);
+}
+
+.infoSection>p {
+    color: var(--gray-600);
+    margin-bottom: var(--space-8);
+}
+
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.infoItem {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.infoIcon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--violet-100);
+    border-radius: var(--radius-lg);
+    flex-shrink: 0;
+}
+
+.infoIcon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--primary-600);
+}
+
+.infoItem h4 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-1);
+    color: var(--primary-900);
+}
+
+.infoItem p {
+    font-size: var(--text-sm);
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contactGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .formSection {
+        order: 2;
+    }
+
+    .infoSection {
+        order: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+
+    .formSection {
+        padding: var(--space-6);
+    }
+}

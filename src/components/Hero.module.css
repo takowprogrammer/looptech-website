@@ -1,0 +1,236 @@
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: var(--space-24) 0;
+    overflow: hidden;
+    background: var(--gradient-mesh), linear-gradient(135deg, #f8f9ff 0%, #f0f0ff 50%, #fdf2ff 100%);
+    background-blend-mode: overlay;
+}
+
+/* Background Pattern */
+.bgPattern {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.6;
+}
+
+.bgPattern svg {
+    width: 100%;
+    height: 100%;
+}
+
+.techLines {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    z-index: 0;
+}
+
+.techLines svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Container */
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+}
+
+/* Content */
+.content {
+    max-width: 600px;
+}
+
+.title {
+    margin-bottom: var(--space-6);
+}
+
+.titleLine {
+    display: block;
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    color: var(--primary-600);
+    margin-bottom: var(--space-2);
+}
+
+.titleGradient {
+    display: block;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: var(--font-extrabold);
+    line-height: 1.15;
+    background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-700) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: var(--text-lg);
+    color: var(--gray-600);
+    line-height: 1.7;
+    margin-bottom: var(--space-8);
+}
+
+/* CTA Buttons */
+.ctaGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-bottom: var(--space-10);
+}
+
+.primaryBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4) var(--space-8);
+    background: var(--gradient-purple);
+    color: var(--white);
+    font-weight: var(--font-semibold);
+    font-size: var(--text-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    transition: all var(--transition-base);
+}
+
+.primaryBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.5);
+}
+
+.primaryBtn svg {
+    transition: transform var(--transition-base);
+}
+
+.primaryBtn:hover svg {
+    transform: translateX(4px);
+}
+
+.secondaryBtn {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-4) var(--space-8);
+    background: transparent;
+    color: var(--primary-600);
+    font-weight: var(--font-semibold);
+    font-size: var(--text-lg);
+    border: 2px solid var(--primary-600);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.secondaryBtn:hover {
+    background: var(--primary-50);
+}
+
+/* Trust Badges */
+.trustBadges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--gray-700);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Illustration */
+.illustration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.illustration svg {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+}
+
+/* Float Animations */
+.float1 {
+    animation: float 4s ease-in-out infinite;
+}
+
+.float2 {
+    animation: float 5s ease-in-out infinite 0.5s;
+}
+
+.float3 {
+    animation: float 3s ease-in-out infinite 1s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .content {
+        max-width: none;
+    }
+
+    .ctaGroup {
+        justify-content: center;
+    }
+
+    .trustBadges {
+        justify-content: center;
+    }
+
+    .illustration {
+        order: -1;
+        margin-bottom: var(--space-8);
+    }
+
+    .illustration svg {
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: var(--space-20) 0 var(--space-12);
+    }
+
+    .primaryBtn,
+    .secondaryBtn {
+        width: 100%;
+        justify-content: center;
+    }
+}
