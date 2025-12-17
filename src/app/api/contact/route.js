@@ -1,85 +1,58 @@
 import { NextResponse } from 'next/server';
-
-// Email integration using Resend
-// To enable: npm install resend && set RESEND_API_KEY in .env.local
+import nodemailer from 'nodemailer';
 
 export async function POST(request) {
     try {
-        const body = await request.json();
-        const { name, email, company, phone, service, message } = body;
+        const { name, email, phone, service, message } = await request.json();
 
-        // Validate required fields
-        if (!name || !email || !message) {
-            return NextResponse.json(
-                { error: 'Name, email, and message are required' },
-                { status: 400 }
-            );
+        // Check if environment variables are configured
+        if (!process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
+            console.warn('SMTP credentials missing. Logging message instead.');
+            // Fallback for development/demo only
+            return NextResponse.json({ success: true, warning: 'Email not sent (credentials missing)' });
         }
 
-        // Email validation regex
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            return NextResponse.json(
-                { error: 'Invalid email address' },
-                { status: 400 }
-            );
-        }
+        const transporter = nodemailer.createTransport({
+            host: process.env.SMTP_HOST || 'smtp.gmail.com',
+            port: parseInt(process.env.SMTP_PORT || '465'),
+            secure: true, // true for 465, false for other ports
+            auth: {
+                user: process.env.SMTP_USER,
+                pass: process.env.SMTP_PASSWORD,
+            },
+        });
 
-        // Check if Resend is configured
-        const resendApiKey = process.env.RESEND_API_KEY;
-
-        if (!resendApiKey) {
-            // Development mode - just log the submission
-            console.log('Contact Form Submission:', { name, email, company, phone, service, message });
-
-            return NextResponse.json({
-                success: true,
-                message: 'Form received (email not configured - development mode)',
-                data: { name, email }
-            });
-        }
-
-        // Production mode - send via Resend
-        const { Resend } = await import('resend');
-        const resend = new Resend(resendApiKey);
-
-        const { data, error } = await resend.emails.send({
-            from: 'Loop Technologies <noreply@looptechnologies.cm>',
-            to: ['info@looptechnologies.cm'], // Replace with your email
+        const mailOptions = {
+            from: `"${name}" <${process.env.SMTP_USER}>`, // Send AS self (Gmail requirement often) but with name
+            to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
             replyTo: email,
-            subject: `New Contact Form: ${service || 'General Inquiry'} from ${name}`,
-            html: `
-                <h2>New Contact Form Submission</h2>
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> ${email}</p>
-                ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
-                ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
-                ${service ? `<p><strong>Service Interest:</strong> ${service}</p>` : ''}
-                <hr />
-                <p><strong>Message:</strong></p>
-                <p>${message.replace(/\n/g, '<br>')}</p>
+            subject: `New Inquiry: ${service} - ${name}`,
+            text: `
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Service: ${service}
+Message: ${message}
             `,
-        });
+            html: `
+<div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+    <h2 style="color: #6366f1;">New Website Inquiry</h2>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Phone:</strong> ${phone}</p>
+    <p><strong>Service:</strong> ${service}</p>
+    <hr style="border: 1px solid #eee; margin: 20px 0;" />
+    <p><strong>Message:</strong></p>
+    <p style="background: #f9fafb; padding: 15px; border-radius: 5px;">${message}</p>
+</div>
+            `,
+        };
 
-        if (error) {
-            console.error('Resend error:', error);
-            return NextResponse.json(
-                { error: 'Failed to send email' },
-                { status: 500 }
-            );
-        }
+        await transporter.sendMail(mailOptions);
 
-        return NextResponse.json({
-            success: true,
-            message: 'Email sent successfully',
-            id: data.id
-        });
-
+        return NextResponse.json({ success: true });
     } catch (error) {
-        console.error('Contact API error:', error);
-        return NextResponse.json(
-            { error: 'Internal server error' },
-            { status: 500 }
-        );
+        console.error('Email error:', error);
+        return NextResponse.json({ error: 'Failed to send message' }, { status: 500 });
     }
 }
