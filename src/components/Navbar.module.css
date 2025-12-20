@@ -1,11 +1,11 @@
 .navbar {
     position: fixed;
-    top: 0;
+    top: var(--banner-height, 0);
     left: 0;
     right: 0;
     z-index: 1000;
     padding: var(--space-4) 0;
-    transition: all var(--transition-base);
+    transition: all var(--transition-base), top 0.3s ease;
 }
 
 .navbar.scrolled {

@@ -4,6 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 import ScrollObserver from "@/components/ScrollObserver";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import CampaignBanner from "@/components/CampaignBanner";
 import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -82,6 +84,8 @@ export default function RootLayout({ children }) {
                 )}
             </head>
             <body className={inter.className}>
+                <CampaignBanner />
+                <WhatsAppButton />
                 <Navbar />
                 <main>{children}</main>
                 <Footer />

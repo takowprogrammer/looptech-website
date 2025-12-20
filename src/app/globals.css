@@ -135,6 +135,9 @@ body {
   background: var(--white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Account for fixed header (Navbar ~80px + Banner variable) */
+  padding-top: calc(80px + var(--banner-height, 0px));
+  transition: padding-top 0.3s ease;
 }
 
 img {
