@@ -260,10 +260,6 @@ export default function GCPTrainingPage() {
                                     <strong>LinkedIn Mastery</strong>
                                     <span>Recruiter-attraction strategies and profile optimization.</span>
                                 </div>
-                                <div className={styles.launchpadItem}>
-                                    <strong>Interview Bootcamp</strong>
-                                    <span>Technical mock interviews and production crisis scenario training.</span>
-                                </div>
                             </div>
                         </div>
                     </div>

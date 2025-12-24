@@ -1,58 +1,45 @@
 import { NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request) {
     try {
         const { name, email, phone, service, message } = await request.json();
 
-        // Check if environment variables are configured
-        if (!process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
-            console.warn('SMTP credentials missing. Logging message instead.');
-            // Fallback for development/demo only
-            return NextResponse.json({ success: true, warning: 'Email not sent (credentials missing)' });
+        // Check for API Key
+        if (!process.env.RESEND_API_KEY) {
+            console.warn('RESEND_API_KEY is missing.');
+            return NextResponse.json({ success: true, warning: 'Email not sent (API Key missing)' });
         }
 
-        const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST || 'smtp.gmail.com',
-            port: parseInt(process.env.SMTP_PORT || '465'),
-            secure: true, // true for 465, false for other ports
-            auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASSWORD,
-            },
+        const data = await resend.emails.send({
+            from: 'LoopTech Contact <onboarding@resend.dev>', // Default Resend test domain
+            to: process.env.CONTACT_EMAIL || 'delivered@resend.dev', // Replace with your verified email
+            reply_to: email,
+            subject: `New Inquiry: ${service} - ${name}`,
+            html: `
+                <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
+                    <h2 style="color: #6366f1;">New Website Inquiry</h2>
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Phone:</strong> ${phone}</p>
+                    <p><strong>Service:</strong> ${service}</p>
+                    <hr style="border: 1px solid #eee; margin: 20px 0;" />
+                    <p><strong>Message:</strong></p>
+                    <p style="background: #f9fafb; padding: 15px; border-radius: 5px;">${message}</p>
+                </div>
+            `,
         });
 
-        const mailOptions = {
-            from: `"${name}" <${process.env.SMTP_USER}>`, // Send AS self (Gmail requirement often) but with name
-            to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
-            replyTo: email,
-            subject: `New Inquiry: ${service} - ${name}`,
-            text: `
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Service: ${service}
-Message: ${message}
-            `,
-            html: `
-<div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-    <h2 style="color: #6366f1;">New Website Inquiry</h2>
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Phone:</strong> ${phone}</p>
-    <p><strong>Service:</strong> ${service}</p>
-    <hr style="border: 1px solid #eee; margin: 20px 0;" />
-    <p><strong>Message:</strong></p>
-    <p style="background: #f9fafb; padding: 15px; border-radius: 5px;">${message}</p>
-</div>
-            `,
-        };
+        if (data.error) {
+            console.error('Resend error:', data.error);
+            return NextResponse.json({ error: 'Failed to send message' }, { status: 500 });
+        }
 
-        await transporter.sendMail(mailOptions);
-
-        return NextResponse.json({ success: true });
+        return NextResponse.json({ success: true, data });
     } catch (error) {
         console.error('Email error:', error);
-        return NextResponse.json({ error: 'Failed to send message' }, { status: 500 });
+        return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }
 }

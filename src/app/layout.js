@@ -36,7 +36,7 @@ const jsonLd = {
 };
 
 // Google Analytics Measurement ID - Replace with your actual ID
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX";
+const GA_MEASUREMENT_ID = process.env.GA_MEASUREMENT_ID || "G-XXXXXXXXXX";
 
 export const metadata = {
     title: "Loop Technologies CO LTD | IT Consulting & Solutions",
