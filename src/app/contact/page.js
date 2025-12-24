@@ -263,7 +263,7 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h4>Email Us</h4>
-                                        <p>support@luptek.com<br />infos@luptek.com</p>
+                                        <p>infos@luptek.com</p>
                                     </div>
                                 </div>
 

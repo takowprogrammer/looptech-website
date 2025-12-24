@@ -14,7 +14,7 @@ export async function POST(request) {
         }
 
         const data = await resend.emails.send({
-            from: 'LoopTech Website <contact@looptechnologies.cm>',  // Must match your verified domain
+            from: 'LoopTech Website <infos@luptek.com>',  // Must match your verified domain
             to: process.env.CONTACT_EMAIL || 'delivered@resend.dev', // Replace with your verified email
             reply_to: email,
             subject: `New Inquiry: ${service} - ${name}`,
