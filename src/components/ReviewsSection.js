@@ -34,8 +34,8 @@ export default function ReviewsSection() {
 
     if (loading) return null;
 
-    // Filter to show max 3 reviews for cleaner layout
-    const displayReviews = reviews.slice(0, 3);
+    // Show up to 5 reviews to fill the grid (Google usually returns 5)
+    const displayReviews = reviews.slice(0, 5);
 
     return (
         <section className={styles.section}>
