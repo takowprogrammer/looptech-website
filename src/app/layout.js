@@ -65,23 +65,20 @@ export default function RootLayout({ children }) {
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
 
-                {/* Google Analytics */}
-                {GA_MEASUREMENT_ID !== "G-XXXXXXXXXX" && (
-                    <>
-                        <Script
-                            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-                            strategy="afterInteractive"
-                        />
-                        <Script id="google-analytics" strategy="afterInteractive">
-                            {`
-                                window.dataLayer = window.dataLayer || [];
-                                function gtag(){dataLayer.push(arguments);}
-                                gtag('js', new Date());
-                                gtag('config', '${GA_MEASUREMENT_ID}');
-                            `}
-                        </Script>
-                    </>
-                )}
+                {/* Google Tag (gtag.js) - Google Ads & Analytics */}
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=AW-703064690"
+                    strategy="afterInteractive"
+                />
+                <Script id="google-tag" strategy="afterInteractive">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'AW-703064690');
+                        ${GA_MEASUREMENT_ID !== "G-XXXXXXXXXX" ? `gtag('config', '${GA_MEASUREMENT_ID}');` : ''}
+                    `}
+                </Script>
             </head>
             <body className={inter.className}>
                 <CampaignBanner />
