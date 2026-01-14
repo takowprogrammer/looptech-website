@@ -129,6 +129,79 @@ const curricula = {
                 ]
             }
         ]
+    },
+    marketing: {
+        title: "Full Stack Digital Marketer & Web Designer",
+        description: "Master WordPress, SEO, and Digital Marketing from beginner to professional.",
+        certCount: 1,
+        certs: ["FREE Google Generative AI Leader Certification"],
+        duration: "12-16 Weeks",
+        phases: [
+            {
+                title: "Part 1: WordPress Mastery",
+                description: "Build fast, secure, mobile-responsive websites without code.",
+                modules: [
+                    {
+                        name: "Web Design Fundamentals",
+                        topics: ["Domains, Hosting & SSL", "WordPress Installation", "Dashboard Configuration"]
+                    },
+                    {
+                        name: "Themes & Page Builders",
+                        topics: ["Parent vs Child Themes", "Mastering Elementor", "Essential Plugin Stack"]
+                    },
+                    {
+                        name: "E-Commerce & WooCommerce",
+                        topics: ["Store Setup", "Payment Gateways", "Security Hardening"]
+                    }
+                ]
+            },
+            {
+                title: "Part 2: SEO Optimization",
+                description: "Drive free, organic traffic from Google.",
+                modules: [
+                    {
+                        name: "Keyword Research",
+                        topics: ["How Google Works", "Search Intent", "Long-Tail Keywords"]
+                    },
+                    {
+                        name: "On-Page & Technical SEO",
+                        topics: ["Title Tags & Meta", "Core Web Vitals", "RankMath/Yoast"]
+                    },
+                    {
+                        name: "Off-Page & Local SEO",
+                        topics: ["Link Building", "Google Business Profile", "NAP Consistency"]
+                    }
+                ]
+            },
+            {
+                title: "Part 3: Digital Marketing",
+                description: "Market your assets and measure success.",
+                modules: [
+                    {
+                        name: "Content & AI Marketing",
+                        topics: ["Pillar-Cluster Model", "AIDA Copywriting", "AI Tools (ChatGPT/Claude)"]
+                    },
+                    {
+                        name: "Social & Email Marketing",
+                        topics: ["Platform Strategy", "Email Automation", "Lead Magnets"]
+                    },
+                    {
+                        name: "Analytics & Reporting",
+                        topics: ["Google Analytics 4", "Search Console", "Looker Studio Dashboards"]
+                    }
+                ]
+            },
+            {
+                title: "Capstone: Client Simulator",
+                description: "Build a complete digital presence for a fictional client.",
+                modules: [
+                    {
+                        name: "Final Project",
+                        topics: ["5-Page WordPress Site", "SEO Optimization", "Social Media Calendar", "Presentation Defense"]
+                    }
+                ]
+            }
+        ]
     }
 };
 
@@ -144,7 +217,7 @@ export default function GCPTrainingPage() {
                     <div className={styles.heroContent}>
                         <span className={styles.badge}>Next Cohort: Feb 10, 2026</span>
                         <h1>Become a <span className={styles.gradientText}>{trackData.title}</span></h1>
-                        <p>{trackData.description} A comprehensive 7-month journey from foundational IT to professional certification.</p>
+                        <p>{trackData.description} {activeTrack === 'marketing' ? 'A comprehensive 12-16 week program with FREE GenAI certification.' : 'A comprehensive 3-month journey from foundational IT to professional certification.'}</p>
 
                         <div className={styles.trackSwitcher}>
                             <button
@@ -158,6 +231,12 @@ export default function GCPTrainingPage() {
                                 onClick={() => setActiveTrack('devops')}
                             >
                                 DevOps Engineer Path
+                            </button>
+                            <button
+                                className={`${styles.trackTab} ${activeTrack === 'marketing' ? styles.active : ''}`}
+                                onClick={() => setActiveTrack('marketing')}
+                            >
+                                Digital Marketing Path
                             </button>
                         </div>
 
@@ -188,7 +267,7 @@ export default function GCPTrainingPage() {
                         </div>
                         <div className={styles.statCard}>
                             <span className={styles.statValue}>
-                                <AnimatedCounter end={7} duration={1500} />
+                                <AnimatedCounter key={`duration-${activeTrack}`} end={activeTrack === 'marketing' ? 3 : 7} duration={1500} />
                             </span>
                             <span className={styles.statLabel}>Months Duration</span>
                         </div>
@@ -215,8 +294,8 @@ export default function GCPTrainingPage() {
             <section id="curriculum" className={styles.curriculum}>
                 <div className={styles.container}>
                     <div className={styles.sectionHeader}>
-                        <h2>The 7-Month Learning Journey</h2>
-                        <p>A structured approach to mastering Google Cloud from zero to expert.</p>
+                        <h2>The {activeTrack === 'marketing' ? 'Week-by-Week' : '7-Month'} Learning Journey</h2>
+                        <p>A structured approach to mastering {activeTrack === 'marketing' ? 'Digital Marketing' : 'Google Cloud'} from zero to expert.</p>
                     </div>
 
                     <div className={styles.timeline}>

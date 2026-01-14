@@ -1,11 +1,11 @@
 # Loop Technologies robots.txt
-# https://looptechnologies.cm
+# https://luptek.com
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://looptechnologies.cm/sitemap.xml
+Sitemap: https://luptek.com/sitemap.xml
 
 # Disallow admin or API routes if any
 Disallow: /api/

@@ -1,0 +1,482 @@
+/* Digital Marketing Training Page Styles */
+
+.pageWrapper {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+    padding: 60px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 70% 50%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+    animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.heroContent {
+    position: relative;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: white;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.gradientText {
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.bonusBadge {
+    display: inline-block;
+    background: linear-gradient(135deg, #059669, #10b981);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+}
+
+.ctaGroup {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.primaryBtn,
+.secondaryBtn {
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.primaryBtn {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+}
+
+.primaryBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+}
+
+.secondaryBtn {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.secondaryBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Overview Section */
+.overview {
+    padding: 60px 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.statCard {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+}
+
+.statValue {
+    display: block;
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.statLabel {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-top: 8px;
+}
+
+.skillsList {
+    text-align: center;
+}
+
+.skillsList h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.skillBadges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.skillBadge {
+    background: rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    color: #60a5fa;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Curriculum Section */
+.curriculum {
+    padding: 80px 0;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.sectionHeader h2 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.sectionHeader p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+}
+
+/* Parts */
+.part {
+    margin-bottom: 60px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.part.wordpress {
+    border-left: 4px solid #22c55e;
+}
+
+.part.seo {
+    border-left: 4px solid #eab308;
+}
+
+.part.marketing {
+    border-left: 4px solid #3b82f6;
+}
+
+.partHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.partEmoji {
+    font-size: 2rem;
+}
+
+.partTitle h3 {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.partSubtitle {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.partGoal {
+    color: #cbd5e1;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Modules */
+.modulesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.module {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.moduleHeader {
+    margin-bottom: 20px;
+}
+
+.moduleNumber {
+    display: inline-block;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.moduleHeader h4 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.moduleHeader p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+.sectionsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.sectionCard {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.sectionCard h5 {
+    color: #60a5fa;
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+.sectionCard ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sectionCard li {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.sectionCard li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #8b5cf6;
+}
+
+/* Capstone */
+.capstone {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 40px;
+}
+
+.capstoneContent {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.capstoneTag {
+    display: inline-block;
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.capstone h3 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.capstone>div>p {
+    color: #94a3b8;
+    margin-bottom: 24px;
+}
+
+.requirements h4 {
+    color: #60a5fa;
+    margin-bottom: 12px;
+}
+
+.requirements ol {
+    padding-left: 20px;
+}
+
+.requirements li {
+    color: #cbd5e1;
+    padding: 8px 0;
+    font-size: 0.95rem;
+}
+
+/* Register Section */
+.register {
+    padding: 80px 0;
+}
+
+.registerCard {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 24px;
+    padding: 60px;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.registerCard h2 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+.registerCard>p {
+    color: #94a3b8;
+    margin-bottom: 32px;
+}
+
+.registerInfo {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+}
+
+.registerInfo p {
+    color: #cbd5e1;
+    margin: 8px 0;
+}
+
+.registerInfo strong {
+    color: #60a5fa;
+}
+
+.registerBtn {
+    display: inline-block;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    padding: 16px 40px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.registerBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 0 60px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .part {
+        padding: 24px;
+    }
+
+    .partHeader {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .registerCard {
+        padding: 40px 24px;
+    }
+
+    .sectionsGrid {
+        grid-template-columns: 1fr;
+    }
+}
