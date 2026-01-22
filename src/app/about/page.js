@@ -1,6 +1,6 @@
 import styles from './about.module.css';
 import Link from 'next/link';
-import { AboutIllustration } from '../../components/Illustrations';
+// import { AboutIllustration } from '../../components/Illustrations';
 import StatsSection from '../../components/StatsSection';
 
 export const metadata = {
@@ -33,9 +33,9 @@ export default function AboutPage() {
                                 Today, we have grown into a premier IT consulting firm, trusted by businesses to deliver robust, scalable, and secure technology solutions. Our journey is defined by a relentless pursuit of excellence and a deep commitment to our clients' success.
                             </p>
                         </div>
-                        <div className={`${styles.storyImage} animate-on-scroll delay-200`}>
+                        {/* <div className={`${styles.storyImage} animate-on-scroll delay-200`}>
                             <AboutIllustration />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>

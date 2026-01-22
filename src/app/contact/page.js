@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import styles from './contact.module.css';
-import { ContactIllustration } from '@/components/Illustrations';
+// import { ContactIllustration } from '@/components/Illustrations';
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -85,9 +85,9 @@ export default function ContactPage() {
                     <span className={styles.tag}>Contact Us</span>
                     <h1>Let's Start a Conversation</h1>
                     <p>Have a project in mind? We&apos;d love to hear from you. Get in touch and let&apos;s discuss how we can help.</p>
-                    <div style={{ maxWidth: '400px', margin: '40px auto 0' }}>
+                    {/* <div style={{ maxWidth: '400px', margin: '40px auto 0' }}>
                         <ContactIllustration />
-                    </div>
+                    </div> */}
                 </div>
             </section>
 
