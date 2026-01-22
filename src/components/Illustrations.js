@@ -1,98 +1,51 @@
 'use client';
 import Image from 'next/image';
 
-// Premium 3D Illustrations using generated images
-// Images should be placed in public/images/3d/
+// Helper to keep wrappers consistent
+const IconWrapper = ({ children, className = "w-12 h-12 relative" }) => (
+    <div className={className}>{children}</div>
+);
 
 export const NetworkIllustration = () => (
-    <div style={{ position: 'relative', width: '100%', height: '200px' }}>
-        <Image
-            src="/images/3d/network.png"
-            alt="Network Infrastructure"
-            fill
-            style={{ objectFit: 'contain' }}
-            priority
-        />
-    </div>
+    <IconWrapper>
+        <Image src="/images/3d/network.png" alt="Network" fill className="object-contain" priority />
+    </IconWrapper>
 );
 
 export const SecurityIllustration = () => (
-    <div style={{ position: 'relative', width: '100%', height: '200px' }}>
-        <Image
-            src="/images/3d/cctv.png"
-            alt="Security and CCTV"
-            fill
-            style={{ objectFit: 'contain' }}
-            priority
-        />
-    </div>
+    <IconWrapper>
+        <Image src="/images/3d/cctv.png" alt="Security" fill className="object-contain" priority />
+    </IconWrapper>
 );
 
 export const CloudIllustration = () => (
-    <div style={{ position: 'relative', width: '100%', height: '200px' }}>
-        <Image
-            src="/images/3d/cloud.png"
-            alt="Cloud Hosting"
-            fill
-            style={{ objectFit: 'contain' }}
-            priority
-        />
-    </div>
+    <IconWrapper>
+        <Image src="/images/3d/cloud.png" alt="Cloud" fill className="object-contain" priority />
+    </IconWrapper>
 );
 
 export const WebDevIllustration = () => (
-    <div style={{ position: 'relative', width: '100%', height: '200px' }}>
-        <Image
-            src="/images/3d/development.png"
-            alt="Web Development"
-            fill
-            style={{ objectFit: 'contain' }}
-            priority
-        />
-    </div>
+    <IconWrapper>
+        <Image src="/images/3d/development.png" alt="Web Dev" fill className="object-contain" priority />
+    </IconWrapper>
 );
 
-export const AboutIllustration = () => (
-    <div style={{ position: 'relative', width: '100%', height: '200px' }}>
-        <Image
-            src="/images/3d/team.png"
-            alt="Our Team"
-            fill
-            style={{ objectFit: 'contain' }}
-            priority
-        />
-    </div>
-);
-
-export const ContactIllustration = () => (
-    <div style={{ position: 'relative', width: '100%', height: '200px' }}>
-        <Image
-            src="/images/3d/team.png"
-            alt="Contact Support"
-            fill
-            style={{ objectFit: 'contain' }}
-            priority
-        />
-    </div>
-);
-
-// Fallback illustrations using simple SVGs for equipment and mobile
+// FIXED: Equipment SVG (Using real colors instead of CSS variables that might be missing)
 export const EquipmentIllustration = () => (
-    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="40" y="60" width="120" height="80" rx="4" stroke="var(--brand-blue)" strokeWidth="2" fill="var(--white)" />
-        <path d="M40 120 L160 120 L150 140 H50 L40 120Z" fill="var(--gray-200)" />
-        <rect x="70" y="80" width="60" height="20" rx="2" fill="var(--violet-100)" />
-        <circle cx="100" cy="90" r="5" fill="var(--brand-blue)" />
-    </svg>
+    <IconWrapper>
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+            <rect x="40" y="60" width="120" height="80" rx="4" stroke="#3b82f6" strokeWidth="4" fill="white" />
+            <path d="M40 120 L160 120 L150 140 H50 L40 120Z" fill="#e5e7eb" />
+            <circle cx="100" cy="90" r="8" fill="#3b82f6" />
+        </svg>
+    </IconWrapper>
 );
 
 export const MobileIllustration = () => (
-    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="70" y="40" width="60" height="120" rx="8" stroke="var(--brand-blue)" strokeWidth="3" fill="var(--white)" />
-        <line x1="85" y1="50" x2="115" y2="50" stroke="var(--gray-300)" strokeWidth="2" strokeLinecap="round" />
-        <circle cx="100" cy="145" r="3" fill="var(--gray-300)" />
-        <rect x="76" y="60" width="48" height="70" rx="2" fill="var(--violet-50)" />
-        <rect x="80" y="70" width="40" height="4" rx="2" fill="var(--brand-blue-light)" />
-        <rect x="80" y="80" width="20" height="4" rx="2" fill="var(--violet-200)" />
-    </svg>
+    <IconWrapper>
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+            <rect x="70" y="40" width="60" height="120" rx="8" stroke="#3b82f6" strokeWidth="4" fill="white" />
+            <circle cx="100" cy="145" r="5" fill="#9ca3af" />
+        </svg>
+    </IconWrapper>
 );

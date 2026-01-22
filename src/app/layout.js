@@ -7,6 +7,7 @@ import ScrollObserver from "@/components/ScrollObserver";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CampaignBanner from "@/components/CampaignBanner";
 import Script from "next/script";
+import TrainingBanner from "@/components/TrainingBanner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -81,12 +82,13 @@ export default function RootLayout({ children }) {
                 </Script>
             </head>
             <body className={inter.className}>
-                <CampaignBanner />
-                <WhatsAppButton />
+                {/* <CampaignBanner /> */}
+                {/* <WhatsAppButton /> */}
                 <Navbar />
                 <main>{children}</main>
+                <TrainingBanner />
                 <Footer />
-                <BackToTop />
+                {/* <BackToTop /> */}
                 <ScrollObserver />
             </body>
         </html>

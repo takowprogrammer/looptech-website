@@ -10,6 +10,7 @@ A modern, professional website for Loop Technologies, an IT consulting startup b
 - **SEO Optimized** - Meta tags and semantic HTML
 - **Animated** - Smooth CSS animations and hover effects
 - **Fast** - Built with Next.js 14 for optimal performance
+https://youtu.be/vk13GJi4Vd0?si=aLEYl5oQOpBmynVL
 
 ## 📦 Tech Stack
 

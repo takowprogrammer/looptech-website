@@ -1,5 +1,9 @@
+import Testimonials from '@/components/Testimonials';
+import ProjectsHero from './_components/ProjectsHero';
 import styles from './projects.module.css';
 import Link from 'next/link';
+import PartnerSection from '@/components/PartnerSection';
+import RequestQuote from '@/components/RequestQuote';
 
 export const metadata = {
     title: "Our Projects | Loop Technologies CO LTD",
@@ -52,95 +56,13 @@ const projects = [
 export default function ProjectsPage() {
     return (
         <>
-            {/* Hero */}
-            <section className={`${styles.hero} bg-gradient-hero animate-on-scroll visible`}>
-                <div className={styles.container}>
-                    <span className={styles.tag}>Our Work</span>
-                    <h1>Projects That Drive Results</h1>
-                    <p>Explore our portfolio of successful IT solutions that have helped businesses transform and grow.</p>
-                </div>
-            </section>
+            <ProjectsHero />
+            
 
-            {/* Projects Grid */}
-            <section className={styles.projects}>
-                <div className={styles.container}>
-                    <div className={`${styles.projectsGrid} stagger-grid visible`}>
-                        {projects.map((project) => (
-                            <div key={project.id} className={styles.projectCard}>
-                                <div className={styles.cardHeader} style={{ background: project.color }}>
-                                    <span className={styles.category}>{project.category}</span>
-                                    <div className={styles.stat}>
-                                        <span className={styles.statNumber}>{project.stats.metric}</span>
-                                        <span className={styles.statLabel}>{project.stats.label}</span>
-                                    </div>
-                                </div>
-                                <div className={styles.cardBody}>
-                                    <h3>{project.title}</h3>
-                                    <p>{project.description}</p>
-                                    <div className={styles.tags}>
-                                        {project.tags.map((tag, i) => (
-                                            <span key={i} className={styles.tagItem}>{tag}</span>
-                                        ))}
-                                    </div>
-                                    {project.url && (
-                                        <a
-                                            href={project.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className={styles.visitLink}
-                                        >
-                                            Visit Project
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
-                                            </svg>
-                                        </a>
-                                    )}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Case Study Highlight */}
-            <section className={styles.caseStudy}>
-                <div className={styles.container}>
-                    <div className={`${styles.caseStudyContent} animate-on-scroll`}>
-                        <span className={styles.tag}>Featured Case Study</span>
-                        <h2>Emmaris25 - Complete Wedding Management System</h2>
-                        <p>
-                            We built an end-to-end wedding management platform that revolutionizes how couples manage
-                            their special day. From a beautiful wedding website to automated WhatsApp invitations with
-                            unique QR codes, and a mobile app for seamless guest check-in on the wedding day.
-                        </p>
-                        <div className={styles.caseStudyStats}>
-                            <div className={styles.caseStat}>
-                                <span>100%</span>
-                                <p>Automated Invitations</p>
-                            </div>
-                            <div className={styles.caseStat}>
-                                <span>QR</span>
-                                <p>Guest Check-in</p>
-                            </div>
-                            <div className={styles.caseStat}>
-                                <span>Excel</span>
-                                <p>Guest Export</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* CTA */}
-            <section className={styles.cta}>
-                <div className={styles.container}>
-                    <h2>Ready to Start Your Project?</h2>
-                    <p>Let&apos;s discuss how we can help bring your vision to life.</p>
-                    <Link href="/contact" className={styles.ctaBtn}>
-                        Get in Touch
-                    </Link>
-                </div>
-            </section>
+            <RequestQuote />
+            <Testimonials />
+            <PartnerSection />
+           
         </>
     );
 }

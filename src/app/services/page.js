@@ -1,6 +1,10 @@
-import styles from './services.module.css';
-import Link from 'next/link';
+
 import { EquipmentIllustration, CloudIllustration, WebDevIllustration, SecurityIllustration, NetworkIllustration, MobileIllustration } from '@/components/Illustrations';
+import ServicesHero from './_components/ServicesHero';
+import ServicesListing from './_components/ServicesListing';
+import PartnerSection from '@/components/PartnerSection';
+import WhyUs from '@/components/WhyUs';
+import RequestQuote from '@/components/RequestQuote';
 
 export const metadata = {
     title: "Our Services | Loop Technologies CO LTD",
@@ -182,97 +186,12 @@ const services = [
 export default function ServicesPage() {
     return (
         <>
-            {/* Hero */}
-            <section className={styles.hero}>
-                <div className={styles.container}>
-                    <span className={styles.tag}>Our Services</span>
-                    <h1>Comprehensive IT Solutions for Your Business</h1>
-                    <p>From cloud computing to security systems, we provide end-to-end IT services to help your business thrive in the digital age.</p>
-                </div>
-            </section>
-
-            {/* Services List */}
-            <section className={styles.servicesList}>
-                <div className={styles.container}>
-                    {services.map((service, index) => (
-                        <div
-                            key={service.id}
-                            id={service.id}
-                            className={`${styles.serviceSection} ${index % 2 === 1 ? styles.reversed : ''} animate-on-scroll`}
-                        >
-                            <div className={styles.serviceContent}>
-                                <div className={styles.serviceHeader}>
-                                    <div className={styles.serviceIcon}>
-                                        {service.icon}
-                                    </div>
-                                    <span className={styles.serviceSubtitle}>{service.subtitle}</span>
-                                    <h2>{service.title}</h2>
-                                    <p className={styles.serviceDesc}>{service.description}</p>
-
-                                    <Link href="/contact" className={styles.serviceBtn}>
-                                        Get Started
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <path d="M5 12h14M12 5l7 7-7 7" />
-                                        </svg>
-                                    </Link>
-                                </div>
-
-                                <div className={styles.detailsGrid}>
-                                    <div className={styles.detailColumn}>
-                                        <h3>Key Features</h3>
-                                        <ul className={styles.checkList}>
-                                            {service.features.map((feature, i) => (
-                                                <li key={i}>
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                                                        <polyline points="20 6 9 17 4 12" />
-                                                    </svg>
-                                                    {feature}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-
-                                    {service.benefits && (
-                                        <div className={styles.detailColumn}>
-                                            <h3>Capabilities</h3>
-                                            <ul className={styles.benefitList}>
-                                                {service.benefits.map((benefit, i) => (
-                                                    <li key={i}>{benefit}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-
-                            <div className={styles.serviceVisual}>
-                                <div className={styles.illustrationWrapper}>
-                                    {service.icon}
-                                </div>
-                                <div className={styles.deliverablesCard}>
-                                    <h4>What You Get</h4>
-                                    <ul>
-                                        {service.deliverables?.map((item, i) => (
-                                            <li key={i}>{item}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* CTA */}
-            <section className={styles.cta}>
-                <div className={styles.container}>
-                    <h2>Need a Custom Solution?</h2>
-                    <p>Contact us to discuss your specific requirements and how we can help.</p>
-                    <Link href="/contact" className={styles.ctaBtn}>
-                        Schedule a Consultation
-                    </Link>
-                </div>
-            </section>
+            <ServicesHero />
+            <ServicesListing />
+            <WhyUs />
+            <RequestQuote />
+            <PartnerSection />
+        
         </>
     );
 }
