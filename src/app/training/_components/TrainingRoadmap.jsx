@@ -47,9 +47,9 @@ export default function TrainingOutcomes() {
           <h2 className="text-4xl md:text-5xl font-bold text-primary-900 tracking-tight">
             Practical Outcome
           </h2>
-          <p className="mt-4 text-gray-600 max-w-2xl text-lg">
+          {/* <p className="mt-4 text-gray-600 max-w-2xl text-lg">
             Our training is engineered to produce immediate, high-impact results for your career and your organization.
-          </p>
+          </p> */}
         </div>
 
         {/* Outcomes Grid */}

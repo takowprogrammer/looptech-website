@@ -22,8 +22,8 @@ export default function TrainingHero() {
             A 7-month transformation to get <span className="italic font-serif text-slate-300">expertly</span> certified.
           </h1>
 
-          <p className="text-base md:text-lg text-slate-300 max-w-lg leading-relaxed">
-            Transition from basic IT support into a Google Cloud Professional Architect through our intensive, instructor-led program.
+          <p className="text-base md:text-lg text-slate-300 max-w-4xl leading-relaxed">
+            Transition from basic IT support into a Google Cloud Professional Architect.
           </p>
 
           <div className="pt-2">

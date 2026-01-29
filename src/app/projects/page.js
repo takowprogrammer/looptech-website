@@ -1,9 +1,8 @@
 import Testimonials from '@/components/Testimonials';
 import ProjectsHero from './_components/ProjectsHero';
-import styles from './projects.module.css';
-import Link from 'next/link';
 import PartnerSection from '@/components/PartnerSection';
 import RequestQuote from '@/components/RequestQuote';
+import ProjectsListing from './_components/ProjectsListing';
 
 export const metadata = {
     title: "Our Projects | Loop Technologies CO LTD",
@@ -57,7 +56,7 @@ export default function ProjectsPage() {
     return (
         <>
             <ProjectsHero />
-            
+            <ProjectsListing />
 
             <RequestQuote />
             <Testimonials />

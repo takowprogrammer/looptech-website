@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Terminal, Layers, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Shield, Terminal, Layers, CheckCircle2, ArrowRight, CheckCircle } from 'lucide-react';
 
 export default function TrainingPrograms() {
   const programs = [
@@ -75,8 +75,8 @@ export default function TrainingPrograms() {
                 {/* Feature List */}
                 <ul className="space-y-3">
                   {program.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3 text-xs font-bold text-gray-700">
-                      <CheckCircle2 className="w-4 h-4 text-primary-600 shrink-0" />
+                    <li key={i} className="flex items-center gap-3 text-gray-700">
+                      <CheckCircle className="w-4 h-4 text-primary-600 shrink-0" />
                       {feature}
                     </li>
                   ))}

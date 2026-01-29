@@ -45,7 +45,7 @@ useEffect(() => {
               <button className="px-8 w-full md:w-fit py-3 bg-primary-700 text-white rounded-full hover:bg-primary-800 transition-all font-medium shadow-md hover:shadow-lg active:scale-95">
                 Contact Us
               </button>
-              <button className="px-8 w-full md:w-fit py-3 border-2 border-gray-300 text-gray-700 rounded-full hover:border-gray-400 hover:bg-gray-50 transition-colors font-medium">
+              <button className="px-8 w-full md:w-fit py-3 border-2 border-primary-700 text-primary-700 rounded-full hover:border-gray-400 hover:bg-gray-50 transition-colors font-medium">
                 Our Services
               </button>
             </div>

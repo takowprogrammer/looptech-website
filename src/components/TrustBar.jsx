@@ -31,7 +31,7 @@ export default function TrustDock() {
                   <span className="ml-1.5 font-bold text-gray-900 leading-none">5.0</span>
                 </div>
                 <p className="text-[11px] text-gray-500 font-semibold uppercase tracking-wider mt-1">
-                  45 Google Reviews
+                  08 Google Reviews
                 </p>
               </div>
 
@@ -61,10 +61,12 @@ export default function TrustDock() {
               ))}
             </div>
             <a 
-              href="#" 
+              href="https://www.google.com/search?hl=en-CM&gl=cm&q=Loop+Technologies+Co+LTD,+Pharmacy+Building,+Opposite+OIC+Pavillion+Hotel+Former+Winners,+Buea&ludocid=17204821500953751040&lsig=AB86z5V26jFjTzk47G1CPSRnCS10&hl=en&gl=CM&zx=1769686769508&no_sw_cr=1#lrd=0x1061336fe9dc7e49:0xeec3ce000459ee00,1" 
               className="text-sm font-bold text-gray-900 underline underline-offset-4 hover:text-secondary-500 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Viel Testimonials
+              View on Google
             </a>
           </div>
 

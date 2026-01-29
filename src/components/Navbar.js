@@ -14,10 +14,11 @@ export default function Navigation() {
 
   const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Training', href: '/training' },
     { name: 'Services', href: '/services', hasDropdown: true },
+    { name: 'Training', href: '/training' },
     { name: 'Projects', href: '/projects' },
     { name: 'About Us', href: '/about' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   const services = [
@@ -70,8 +71,11 @@ export default function Navigation() {
                         isActive || isServicesOpen ? 'text-primary-700' : 'text-gray-600 hover:text-primary-600'
                       }`}
                     >
-                      {link.name}
+                      <div className="flex items-center gap-1">
+                        {link.name}
                       <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                      </div>
+                      <span className={`absolute bottom-0 left-0 h-[2px] bg-primary-700 transition-all duration-300 ${isActive ? 'w-full' : 'w-0'}`}></span>
                     </Link>
 
                     {/* Framer Motion Dropdown */}

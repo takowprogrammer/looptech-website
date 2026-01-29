@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import styles from './contact.module.css';
-// import { ContactIllustration } from '@/components/Illustrations';
+import ContactHero from './_components/ContactHero';
+import ContactInfo from './_components/ContactInfo';
+import RequestQuote from '@/components/RequestQuote';
+import ContactMap from './_components/ContactMap';
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -79,23 +81,15 @@ export default function ContactPage() {
 
     return (
         <>
-            {/* Hero */}
-            <section className={styles.hero}>
-                <div className={styles.container}>
-                    <span className={styles.tag}>Contact Us</span>
-                    <h1>Let's Start a Conversation</h1>
-                    <p>Have a project in mind? We&apos;d love to hear from you. Get in touch and let&apos;s discuss how we can help.</p>
-                    {/* <div style={{ maxWidth: '400px', margin: '40px auto 0' }}>
-                        <ContactIllustration />
-                    </div> */}
-                </div>
-            </section>
 
+        <ContactHero />
+        <RequestQuote />
+        <ContactInfo />
+        {/* <ContactMap /> */}
             {/* Contact Section */}
-            <section className={styles.contact}>
+            {/* <section className={styles.contact}>
                 <div className={styles.container}>
                     <div className={styles.contactGrid}>
-                        {/* Contact Form */}
                         <div className={styles.formSection}>
                             <h2>Send us a Message</h2>
 
@@ -223,7 +217,6 @@ export default function ContactPage() {
                             )}
                         </div>
 
-                        {/* Contact Info */}
                         <div className={styles.infoSection}>
                             <h2>Get in Touch</h2>
                             <p>We&apos;re here to help and answer any questions you might have. We look forward to hearing from you.</p>
@@ -283,7 +276,7 @@ export default function ContactPage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </>
     );
 }
