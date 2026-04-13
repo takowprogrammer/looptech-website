@@ -221,7 +221,7 @@ export default function DigitalMarketingPage() {
             <section className={styles.hero}>
                 <div className={styles.container}>
                     <div className={styles.heroContent}>
-                        <span className={styles.badge}>Next Cohort: Feb 10, 2026</span>
+                        <span className={styles.badge}>Enrollment Open</span>
                         <h1>Become a <span className={styles.gradientText}>{curriculum.title}</span></h1>
                         <p>{curriculum.goal}</p>
 
@@ -231,7 +231,7 @@ export default function DigitalMarketingPage() {
 
                         <div className={styles.ctaGroup}>
                             <a
-                                href="https://wa.me/237674081245?text=Hi%2C%20I%27m%20interested%20in%20the%20Digital%20Marketing%20training%20starting%20Feb%2010th%2E"
+                                href="https://wa.me/237674081245?text=Hi%2C%20I%27m%20interested%20in%20the%20Digital%20Marketing%20training%20program."
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.primaryBtn}
@@ -345,6 +345,15 @@ export default function DigitalMarketingPage() {
                             </div>
                         </div>
                     </div>
+
+                    {/* Certification Exam */}
+                    <div className={styles.certExam} style={{ marginTop: '40px' }}>
+                        <div className={styles.certExamIcon}>🎓</div>
+                        <div className={styles.certExamText}>
+                            <div className={styles.certExamLabel}>Certification Milestone</div>
+                            <div className={styles.certExamName}>Google Generative AI Leader Certification Exam</div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -353,14 +362,13 @@ export default function DigitalMarketingPage() {
                 <div className={styles.container}>
                     <div className={styles.registerCard}>
                         <h2>Ready to Launch Your Digital Career?</h2>
-                        <p>Spaces are limited for the February 2026 cohort. Apply today and get FREE GenAI Certification!</p>
+                        <p>Spaces are limited. Apply today and get FREE GenAI Certification!</p>
                         <div className={styles.registerInfo}>
-                            <p><strong>Cohort Starts:</strong> Feb 10th, 2026</p>
                             <p><strong>Duration:</strong> 12-16 Weeks</p>
                             <p><strong>Bonus:</strong> FREE Google GenAI Leader Exam</p>
                         </div>
                         <a
-                            href="https://wa.me/237674081245?text=Hi%2C%20I%27m%20interested%20in%20joining%20the%20Digital%20Marketing%20cohort%20on%20Feb%2010th%2E"
+                            href="https://wa.me/237674081245?text=Hi%2C%20I%27m%20interested%20in%20joining%20the%20Digital%20Marketing%20program."
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.registerBtn}

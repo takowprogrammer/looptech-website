@@ -51,11 +51,7 @@ export default function ResidencyDetailSplit() {
               ))}
             </div>
             
-            <div className="">
-              <button className="px-10 w-full md:w-fit py-4 bg-transparent border-2 text-primary-700 font-bold rounded-sm hover:bg-primary-50 transition-all">
-                Apply for the Residency
-              </button>
-            </div>
+            <div></div>
           </div>
 
           {/* Right Side: Tall Long Image */}

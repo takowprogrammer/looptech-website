@@ -27,9 +27,9 @@ export default function TrainingHero() {
           </p>
 
           <div className="pt-2">
-            <button className="px-8 py-4 bg-primary-700 hover:bg-primary-600 text-white rounded-full font-bold transition-all active:scale-95 shadow-lg">
+            <a href="#training-programs" className="px-8 py-4 bg-primary-700 hover:bg-primary-600 text-white rounded-full font-bold transition-all active:scale-95 shadow-lg inline-block">
               Secure Your Spot Now
-            </button>
+            </a>
           </div>
         </div>
       </div>

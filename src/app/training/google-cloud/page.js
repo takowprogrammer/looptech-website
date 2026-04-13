@@ -6,11 +6,11 @@ import Link from 'next/link';
 import AnimatedCounter from '@/components/AnimatedCounter';
 
 const curricula = {
-    cloud: {
-        title: "Multi-Certified Cloud Engineer",
+    associate_cloud: {
+        title: "Associate Cloud Engineer",
         description: "Focus on broad cloud architecture, AI leadership, and digital transformation.",
         certCount: 3,
-        certs: ["Generative AI Leader", "Cloud Digital Leader", "Associate Cloud Engineer"],
+        certs: ["Google Cloud Digital Leader", "Generative AI Leader", "Associate Cloud Engineer"],
         phases: [
             {
                 title: "Month 1: IT & Linux Foundations",
@@ -22,7 +22,7 @@ const curricula = {
                     },
                     {
                         name: "Linux for Cloud Engineers",
-                        topics: ["Mastering CLI (Bash)", "File & User Management", "Network Config (ssh, rsync)", "Virtualization Mastery"]
+                        topics: ["Mastering CLI (Bash)", "File & User Management", "Network Config", "Virtualization Mastery"]
                     }
                 ]
             },
@@ -70,11 +70,71 @@ const curricula = {
             }
         ]
     },
-    devops: {
+    professional_architect: {
+        title: "Professional Cloud Architect",
+        description: "Master enterprise cloud architecture, migration strategies, and system design.",
+        certCount: 2,
+        certs: ["Associate Cloud Engineer", "Professional Cloud Architect"],
+        phases: [
+            {
+                title: "Months 1-3: Associate Cloud Engineer Fundamentals",
+                description: "Deep dive into GCP infrastructure and core services.",
+                modules: [
+                    {
+                        name: "Infrastructure Setup",
+                        topics: ["IAM & Resource Management", "Compute Engine & Autoscaling", "Virtual Private Cloud (VPC)"]
+                    },
+                    {
+                        name: "Data & Storage",
+                        topics: ["Cloud Storage & SQL", "Spanner & Bigtable basics", "Containerization with GKE"]
+                    }
+                ]
+            },
+            {
+                title: "Months 4-5: Enterprise Architecture",
+                description: "Designing reliable, scalable, and highly available systems.",
+                modules: [
+                    {
+                        name: "System Design Patterns",
+                        topics: ["Microservices Architecture", "Disaster Recovery Planning", "Multi-region Deployments"]
+                    },
+                    {
+                        name: "Migration & Modernization",
+                        topics: ["Lift-and-Shift vs Refactoring", "Migrating Databases", "Anthos & Hybrid Cloud"]
+                    }
+                ]
+            },
+            {
+                title: "Month 6: Security, Compliance & Optimization",
+                description: "Ensuring your architecture meets industry standards.",
+                modules: [
+                    {
+                        name: "Enterprise Security",
+                        topics: ["VPC Service Controls", "Identity-Aware Proxy (IAP)", "Encryption Strategies (CMEK)"]
+                    },
+                    {
+                        name: "Cost & Performance Analysis",
+                        topics: ["Cloud Monitoring & Logging", "Cost Optimization Strategies", "Performance Tuning"]
+                    }
+                ]
+            },
+            {
+                title: "Month 7: Case Studies & Defense",
+                description: "Applying architecture principles to real-world scenarios.",
+                modules: [
+                    {
+                        name: "PCA Preparation",
+                        topics: ["EHR Healthcare Case Study", "Mountkirk Games Study", "Final Architecture Defense"]
+                    }
+                ]
+            }
+        ]
+    },
+    professional_devops: {
         title: "Professional Cloud DevOps Engineer",
         description: "Specialized path focusing on automation, CI/CD, and site reliability.",
         certCount: 2,
-        certs: ["Associate Cloud Engineer", "Professional Cloud DevOps Engineer"],
+        certs: ["Professional Cloud Architect", "Professional Cloud DevOps Engineer"],
         phases: [
             {
                 title: "Month 1: DevOps & Linux Master",
@@ -91,21 +151,21 @@ const curricula = {
                 ]
             },
             {
-                title: "Months 2-4: Associate Cloud Engineer (ACE)",
-                description: "Deep dive into resource orchestration and GKE.",
+                title: "Months 2-3: Cloud Architecture (PCA) Prep",
+                description: "Understanding the infrastructure you will automate.",
                 modules: [
                     {
                         name: "Core Infrastructure",
-                        topics: ["IAM & Resource Hierarchy", "Networking & Interconnect", "Identity-Aware Proxy (IAP)"]
+                        topics: ["IAM & Resource Hierarchy", "Networking & Interconnect", "System Design Basics"]
                     },
                     {
-                        name: "Containers & GKE",
+                        name: "Containers & Orchestration",
                         topics: ["Dockerization Basics", "GKE Cluster Management", "Autopilot vs Standard", "Configuring Ingress"]
                     }
                 ]
             },
             {
-                title: "Months 5-7: Professional DevOps Engineer",
+                title: "Months 4-6: Professional DevOps Engineering",
                 description: "Elite skills in automation, SRE, and observability.",
                 modules: [
                     {
@@ -119,7 +179,7 @@ const curricula = {
                 ]
             },
             {
-                title: "The Finale: DevOps Capstone",
+                title: "Month 7: DevOps Capstone",
                 description: "Proving your expertise through architecture.",
                 modules: [
                     {
@@ -131,10 +191,10 @@ const curricula = {
         ]
     },
     marketing: {
-        title: "Full Stack Digital Marketer & Web Designer",
+        title: "Digital Marketing Training",
         description: "Master WordPress, SEO, and Digital Marketing from beginner to professional.",
         certCount: 1,
-        certs: ["FREE Google Generative AI Leader Certification"],
+        certs: ["Google Generative AI Leader"],
         duration: "12-16 Weeks",
         phases: [
             {
@@ -206,7 +266,7 @@ const curricula = {
 };
 
 export default function GCPTrainingPage() {
-    const [activeTrack, setActiveTrack] = useState('cloud');
+    const [activeTrack, setActiveTrack] = useState('associate_cloud');
     const trackData = curricula[activeTrack];
 
     return (
@@ -215,34 +275,40 @@ export default function GCPTrainingPage() {
             <section className={styles.hero}>
                 <div className={styles.container}>
                     <div className={styles.heroContent}>
-                        <span className={styles.badge}>Next Cohort: Feb 10, 2026</span>
-                        <h1>Become a <span className={styles.gradientText}>{trackData.title}</span></h1>
-                        <p>{trackData.description} {activeTrack === 'marketing' ? 'A comprehensive 12-16 week program with FREE GenAI certification.' : 'A comprehensive 3-month journey from foundational IT to professional certification.'}</p>
+                        <span className={styles.badge}>Enrollment Open</span>
+                        <h1><span className={styles.gradientText}>{trackData.title}</span></h1>
+                        <p>{trackData.description} {activeTrack === 'marketing' ? 'A comprehensive 3-month program.' : 'A comprehensive 7-month journey from foundational IT to professional certification.'}</p>
 
                         <div className={styles.trackSwitcher}>
                             <button
-                                className={`${styles.trackTab} ${activeTrack === 'cloud' ? styles.active : ''}`}
-                                onClick={() => setActiveTrack('cloud')}
+                                className={`${styles.trackTab} ${activeTrack === 'associate_cloud' ? styles.active : ''}`}
+                                onClick={() => setActiveTrack('associate_cloud')}
                             >
-                                Cloud Engineer Path
+                                Associate Cloud Engineer
                             </button>
                             <button
-                                className={`${styles.trackTab} ${activeTrack === 'devops' ? styles.active : ''}`}
-                                onClick={() => setActiveTrack('devops')}
+                                className={`${styles.trackTab} ${activeTrack === 'professional_architect' ? styles.active : ''}`}
+                                onClick={() => setActiveTrack('professional_architect')}
                             >
-                                DevOps Engineer Path
+                                Pro Cloud Architect
+                            </button>
+                            <button
+                                className={`${styles.trackTab} ${activeTrack === 'professional_devops' ? styles.active : ''}`}
+                                onClick={() => setActiveTrack('professional_devops')}
+                            >
+                                Pro DevOps Engineer
                             </button>
                             <button
                                 className={`${styles.trackTab} ${activeTrack === 'marketing' ? styles.active : ''}`}
                                 onClick={() => setActiveTrack('marketing')}
                             >
-                                Digital Marketing Path
+                                Digital Marketing
                             </button>
                         </div>
 
                         <div className={styles.ctaGroup}>
                             <a
-                                href={`https://wa.me/237674081245?text=Hi%2C%20I%27m%20interested%20in%20the%20${trackData.title}%20starting%20Feb%2010th%2E`}
+                                href={`https://wa.me/237674081245?text=Hi%2C%20I%27m%20interested%20in%20the%20${trackData.title}%20program.`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className={styles.primaryBtn}
@@ -350,14 +416,13 @@ export default function GCPTrainingPage() {
                 <div className={styles.container}>
                     <div className={styles.registerCard}>
                         <h2>Ready to Build Your Future?</h2>
-                        <p>Spaces are limited for the February 2026 cohort. Select your path and apply today.</p>
+                        <p>Spaces are limited. Select your path and apply today.</p>
                         <div className={styles.registerInfo}>
-                            <p><strong>Cohort Starts:</strong> Feb 10th, 2026</p>
                             <p><strong>Path:</strong> {trackData.title}</p>
-                            <p><strong>Duration:</strong> 28 Weeks</p>
+                            <p><strong>Duration:</strong> {activeTrack === 'marketing' ? '12 Weeks' : '28 Weeks'}</p>
                         </div>
                         <a
-                            href={`https://wa.me/237674081245?text=Hi%2C%20I%27m%20interested%20in%20joining%20the%20${trackData.title}%20cohort%20on%20Feb%2010th%2E`}
+                            href={`https://wa.me/237674081245?text=Hi%2C%20I%27m%20interested%20in%20joining%20the%20${trackData.title}%20program.`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className={styles.registerBtn}

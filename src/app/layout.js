@@ -81,7 +81,7 @@ export default function RootLayout({ children }) {
                     `}
                 </Script>
             </head>
-            <body className={inter.className}>
+            <body className={inter.className} suppressHydrationWarning>
                 {/* <WhatsAppButton /> */}
                 <Navbar />
                 <main>{children}</main>

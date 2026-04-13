@@ -13,37 +13,37 @@ export default function ServicesListing() {
         icon: <CloudIllustration />,
         title: "Cloud Computing & Training",
         description: "As a certified GCP Partner, we provide comprehensive cloud solutions and training programs to accelerate your cloud journey.",
-        href: "/services#cloud"
+        href: "/services/cloud-computing"
     },
     {
         icon: <SecurityIllustration />,
         title: "Security & Surveillance",
         description: "Enterprise-grade CCTV, biometric access control, and network hardening to secure your physical and digital perimeters.",
-        href: "/services#security"
+        href: "/services/security-surveillance"
     },
     {
         icon: <NetworkIllustration />,
         title: "Network Infrastructure",
         description: "Custom network design, implementation, and management using industry-leading hardware for maximum uptime.",
-        href: "/services#network"
+        href: "/services/network-infrastructure"
     },
     {
         icon: <EquipmentIllustration />,
         title: "IT Equipment Supplies",
         description: "Premium hardware procurement and setup services. We source quality computers, servers, and peripherals tailored to your business needs.",
-        href: "/services#equipment"
+        href: "/services/it-equipment"
     },
     {
         icon: <WebDevIllustration />,
         title: "Full Stack Web Development",
         description: "Master modern technologies with hands-on courses. Learn React, Node.js, databases, and deployment strategies from industry experts.",
-        href: "/services#web-dev"
+        href: "/services/web-development"
     },
     {
         icon: <MobileIllustration />,
         title: "Mobile App Development",
         description: "Native and cross-platform mobile solutions designed for performance, security, and seamless user experiences.",
-        href: "/services#mobile"
+        href: "/services/mobile-development"
     }
   ];
 
@@ -116,9 +116,9 @@ export default function ServicesListing() {
                 <h4 className="text-2xl md:text-3xl text-white font-bold mb-2">Need a custom solution?</h4>
                 <p className="text-slate-400">Our engineers are ready to architect your specific infrastructure needs.</p>
             </div>
-            <button className="px-10 py-4 bg-primary-700 whitespace-nowrap text-white rounded-full font-bold hover:bg-primary-600 transition-all active:scale-95 shadow-lg shadow-primary-900/20">
+            <a href="/contact" className="px-10 py-4 bg-primary-700 whitespace-nowrap text-white rounded-full font-bold hover:bg-primary-600 transition-all active:scale-95 shadow-lg shadow-primary-900/20 inline-block">
                 Contact Sales Engineer
-            </button>
+            </a>
         </div>
 
       </div>

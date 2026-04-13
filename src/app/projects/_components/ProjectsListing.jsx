@@ -9,6 +9,7 @@ const projects = [
     description: "A comprehensive ticket-based IT support platform designed to streamline issue tracking and technical resolution workflows.",
     image: "/images/projects/aidsync.png",
     color: "#5649c5",
+    url: "https://aidsync.io"
   },
   {
     title: "Dunamis InfoTech",
@@ -16,6 +17,7 @@ const projects = [
     description: "A hybrid platform for booking professional IT services and procuring high-end enterprise hardware.",
     image: "/images/projects/dunamis.png",
     color: "#0d9488",
+    url: "https://dunamisitsolutions.com"
   },
   {
     title: "Emmaris Wedding System",
@@ -23,6 +25,7 @@ const projects = [
     description: "A specialized wedding management system streamlining guest lists, vendor coordination, and event scheduling.",
     image: "/images/projects/emmaris.png",
     color: "#db2777",
+    url: "https://emmaris25.com"
   },
   {
     title: "Luptek Portfolio",
@@ -30,6 +33,7 @@ const projects = [
     description: "A modern, high-performance portfolio website showcasing technical expertise and digital brand identity.",
     image: "/images/projects/luptek.png",
     color: "#4f46e5",
+    url: "https://luptek.com"
   },
   {
     title: "GCP Global Migration",
@@ -37,6 +41,7 @@ const projects = [
     description: "Architecting a seamless transition to Google Cloud for multi-regional enterprise scaling and data redundancy.",
     image: "/images/projects/cloud.png",
     color: "#1d4ed8",
+    url: null
   },
   {
     title: "CCTV Live Installation",
@@ -44,6 +49,7 @@ const projects = [
     description: "Large-scale deployment of live-streaming surveillance systems with remote access and encrypted storage.",
     image: "/images/projects/cctv.png",
     color: "#1f2937",
+    url: null
   }
 ];
 
@@ -99,22 +105,30 @@ export default function ProjectsSection() {
                 {project.description}
               </p>
               
-              {/* Link with animated underline */}
-              <div className="w-fit">
-                <a 
-                  href={"#"}
-                  className="group/link relative inline-flex items-center gap-2 text-sm font-bold text-gray-900 transition-colors hover:text-primary-700"
-                >
-                  <span>View Details</span>
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                  
-                  <span className="absolute -bottom-1 left-0 h-[2px] w-full bg-gray-100 overflow-hidden">
-                    <span className="absolute inset-0 h-full w-full origin-left scale-x-0 bg-primary-700 transition-transform duration-300 ease-out group-hover/link:scale-x-100" />
+              {project.url ? (
+                <div className="w-fit">
+                  <a 
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group/link relative inline-flex items-center gap-2 text-sm font-bold text-gray-900 transition-colors hover:text-primary-700"
+                  >
+                    <span>View Details</span>
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                    <span className="absolute -bottom-1 left-0 h-[2px] w-full bg-gray-100 overflow-hidden">
+                      <span className="absolute inset-0 h-full w-full origin-left scale-x-0 bg-primary-700 transition-transform duration-300 ease-out group-hover/link:scale-x-100" />
+                    </span>
+                  </a>
+                </div>
+              ) : (
+                <div className="w-fit">
+                  <span className="inline-flex items-center gap-2 text-sm font-bold text-gray-400">
+                    <span>Internal Project</span>
                   </span>
-                </a>
-              </div>
+                </div>
+              )}
             </div>
           ))}
         </div>

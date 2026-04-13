@@ -48,7 +48,7 @@ export default function TrainingBanner() {
                 </div>
                 <div>
                   <p className="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Training Duration</p>
-                  <p className="text-white font-bold">Feb 10th - 7 Months</p>
+                  <p className="text-white font-bold">7 Months Training</p>
                 </div>
               </div>
 
@@ -64,10 +64,15 @@ export default function TrainingBanner() {
               </div>
 
               {/* Action Button */}
-              <button className="w-full max-w-md py-4 bg-white text-slate-900 rounded-full font-black text-xl flex items-center justify-center gap-3 hover:bg-indigo-50 transition-all shadow-2xl active:scale-[0.98]">
+              <a 
+                href="https://wa.me/237674081245?text=Hello%20LoopTech!%20I%20am%20interested%20in%20securing%20my%20spot%20for%20the%20Google%20Cloud%20training%20program."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full max-w-md py-4 bg-white text-slate-900 rounded-full font-black text-xl flex items-center justify-center gap-3 hover:bg-indigo-50 transition-all shadow-2xl active:scale-[0.98]"
+              >
                 Secure Your Spot
                 <ArrowRight className="w-6 h-6 text-indigo-600" />
-              </button>
+              </a>
 
             </div>
 

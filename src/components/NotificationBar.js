@@ -41,7 +41,7 @@ export default function NotificationBar() {
             alignItems: 'center',
             gap: '15px'
         }}>
-            <span>🚀 <strong>New:</strong> Become a Google Cloud Engineer in 7 Months! Starts Feb 10th.</span>
+            <span>🚀 <strong>New:</strong> Become a Google Cloud Engineer in 7 Months! Enrollment Open.</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                 <Link
                     href="/training/google-cloud"

@@ -21,7 +21,6 @@
     overflow: hidden;
 }
 
-/* Background decoration */
 .hero::before {
     content: '';
     position: absolute;
@@ -76,7 +75,6 @@
     animation: fadeInUp 0.8s ease-out 0.2s backwards;
 }
 
-/* Gradient Text Effect */
 .gradientText {
     background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
     -webkit-background-clip: text;
@@ -180,42 +178,6 @@
     letter-spacing: 0.05em;
 }
 
-/* --- Program Details --- */
-.programDetails {
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.programDetails h2 {
-    font-size: 3rem;
-    font-weight: 800;
-    color: #111827;
-    margin-bottom: 24px;
-}
-
-.targetAudience {
-    list-style: none;
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
-
-.targetAudience li {
-    background: white;
-    padding: 12px 24px;
-    border-radius: 12px;
-    font-weight: 600;
-    color: #374151;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
 /* --- Curriculum --- */
 .curriculum {
     padding: 100px 0;
@@ -232,6 +194,11 @@
     font-weight: 800;
     margin-bottom: 20px;
     color: #111827;
+}
+
+.sectionHeader p {
+    color: #64748b;
+    font-size: 1.1rem;
 }
 
 .timeline {
@@ -259,22 +226,7 @@
     margin-bottom: 60px;
     position: relative;
     border: 1px solid #e2e8f0;
-}
-
-.phase:nth-child(1) {
-    border-top: 6px solid #4285F4;
-}
-
-.phase:nth-child(2) {
-    border-top: 6px solid #EA4335;
-}
-
-.phase:nth-child(3) {
-    border-top: 6px solid #FBBC05;
-}
-
-.phase:nth-child(4) {
-    border-top: 6px solid #34A853;
+    border-top: 6px solid #1e3a8a;
 }
 
 .phaseHeader {
@@ -289,7 +241,7 @@
 .phaseNumber {
     font-size: 5rem;
     font-weight: 900;
-    color: #f1f5f9;
+    color: #dbeafe;
     line-height: 0.8;
 }
 
@@ -358,8 +310,8 @@
 .certExam {
     margin-top: 24px;
     padding: 16px 24px;
-    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-    border: 2px solid #10b981;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border: 2px solid #1e3a8a;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -369,7 +321,7 @@
 .certExamIcon {
     width: 40px;
     height: 40px;
-    background: #10b981;
+    background: #1e3a8a;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -388,14 +340,14 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #059669;
+    color: #1e3a8a;
     margin-bottom: 2px;
 }
 
 .certExamName {
     font-size: 1rem;
     font-weight: 700;
-    color: #064e3b;
+    color: #0f172a;
 }
 
 /* --- Register CTA --- */
@@ -426,12 +378,24 @@
     border-radius: 50%;
 }
 
+.registerCard h2 {
+    position: relative;
+    z-index: 10;
+}
+
+.registerCard > p {
+    position: relative;
+    z-index: 10;
+}
+
 .registerInfo {
     display: flex;
     justify-content: center;
     gap: 48px;
     margin: 48px 0;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
 }
 
 .registerInfo p {
@@ -464,41 +428,6 @@
 .registerBtn:hover {
     transform: scale(1.05);
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
-}
-
-/* --- Track Selector (Tabs) --- */
-.trackSwitcher {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-    margin-bottom: 40px;
-    animation: fadeInUp 0.8s ease-out 0.5s backwards;
-}
-
-.trackTab {
-    padding: 12px 28px;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid rgba(30, 58, 138, 0.2);
-    background: rgba(255, 255, 255, 0.5);
-    color: #4b5563;
-}
-
-.trackTab:hover {
-    background: white;
-    border-color: #1e3a8a;
-    color: #1e3a8a;
-}
-
-.trackTab.active {
-    background: #1e3a8a;
-    color: white;
-    border-color: #1e3a8a;
-    box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.3);
 }
 
 /* --- Certification List --- */
@@ -598,7 +527,6 @@
         opacity: 0;
         transform: translateY(20px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -610,7 +538,6 @@
         opacity: 0;
         transform: translateY(-20px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -621,7 +548,6 @@
     .timeline::before {
         display: block;
     }
-
     .phase {
         margin-left: 60px;
     }
@@ -631,44 +557,28 @@
     .hero h1 {
         font-size: 2.5rem;
     }
-
     .statsGrid {
         grid-template-columns: 1fr;
         margin-bottom: 60px;
     }
-
     .ctaGroup {
         flex-direction: column;
         width: 100%;
     }
-
     .primaryBtn,
     .secondaryBtn {
         width: 100%;
     }
-
     .phaseNumber {
         display: none;
     }
-
     .phaseHeader {
         flex-direction: column;
         gap: 10px;
     }
-
-    .trackSwitcher {
-        flex-direction: column;
-        padding: 0 20px;
-    }
-
-    .trackTab {
-        width: 100%;
-    }
-
     .careerLaunchpad {
         padding: 40px 20px;
     }
-
     .launchpadContent h3 {
         font-size: 1.75rem;
     }

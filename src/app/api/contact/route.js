@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request) {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     try {
         const { name, email, phone, service, message } = await request.json();
 
@@ -15,7 +14,7 @@ export async function POST(request) {
 
         const data = await resend.emails.send({
             from: 'LoopTech Website <infos@luptek.com>',  // Must match your verified domain
-            to: process.env.CONTACT_EMAIL || 'delivered@resend.dev', // Replace with your verified email
+            to: process.env.CONTACT_EMAIL || 'infos@luptek.com', // Replace with your verified email
             reply_to: email,
             subject: `New Inquiry: ${service} - ${name}`,
             html: `
